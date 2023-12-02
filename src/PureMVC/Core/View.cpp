@@ -233,11 +233,7 @@ View::MediatorNames View::listMediatorNames(void) const
                                   MediatorMap::const_iterator,
                                   IteratorConverter,
                                   IteratorRange> result_t;
-#if defined(PUREMVC_USES_TR1)
     return std::unique_ptr<IAggregate<MediatorMap::key_type> >(new result_t(&_mediator_map));
-#else
-    return std::auto_ptr<IAggregate<MediatorMap::key_type> >(new result_t(&_mediator_map));
-#endif
 }
 
 View::~View(void)

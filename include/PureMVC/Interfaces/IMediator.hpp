@@ -62,11 +62,7 @@ namespace PureMVC
          */
         struct PUREMVC_API IMediator : public virtual INotifier
         {
-#if defined(PUREMVC_USES_TR1)
             typedef std::unique_ptr<IAggregate<std::string> > NotificationNames;
-#else
-            typedef std::auto_ptr<IAggregate<std::string> > NotificationNames;
-#endif
 
             /**
              * Get the <code>IMediator</code> instance name

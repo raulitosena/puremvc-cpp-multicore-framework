@@ -346,13 +346,13 @@ namespace tut
         {
             std::size_t counter = 0;
             Facade::CoreNames::element_type::Iterator iterator = aggregate->getIterator();
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout << std::endl << "List of cores:" << std::endl;
 #endif
             while(iterator->moveNext())
             {
                 ++counter;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
                 std::cout <<counter << "." << iterator->getCurrent() << std::endl;;
 #endif
             }

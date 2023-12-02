@@ -111,7 +111,7 @@ namespace PureMVC
             if (!_mutex) _mutex = new FastMutex();
             FastMutex::ScopedLock _(*_mutex);
             if (_instance != NULL) return;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout << "Create instance map of " << _Name << std::endl;
 #endif
             _instance = new StringTypeMap;
@@ -273,11 +273,7 @@ namespace PureMVC
             return std::auto_ptr<Interfaces::IAggregate<StringTypeMap::key_type> >(new result_t(_instance));
         }
 #else
-#if defined(PUREMVC_USES_TR1)
         std::unique_ptr<Interfaces::IAggregate<typename StringTypeMap::key_type> > getKeyAggregate()
-#else
-        std::auto_ptr<Interfaces::IAggregate<typename StringTypeMap::key_type> > getKeyAggregate()
-#endif
         {
             createCache();
             if (!_mutex) _mutex = new FastMutex();
@@ -287,11 +283,7 @@ namespace PureMVC
                                                     typename StringTypeMap::const_iterator,
                                                     KeyConverter,
                                                     KeyRange> result_t;
-#if defined(PUREMVC_USES_TR1)
             return std::unique_ptr<Interfaces::IAggregate<typename StringTypeMap::key_type> >(new result_t(_instance));
-#else
-            return std::auto_ptr<Interfaces::IAggregate<typename StringTypeMap::key_type> >(new result_t(_instance));
-#endif
         }
 #endif
         void cleanCache(void)
@@ -300,7 +292,7 @@ namespace PureMVC
             if (!_mutex) _mutex = new FastMutex();
             FastMutex::ScopedLock _(*_mutex);
             if (_instance == NULL) return;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout << "Clean instance map of " << _Name <<" - Number object: " << _instance->size() << std::endl;
 #endif
             StringTypeMap * instance = _instance;

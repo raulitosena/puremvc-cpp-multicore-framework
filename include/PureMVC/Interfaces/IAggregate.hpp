@@ -32,11 +32,7 @@ namespace PureMVC
         {
             typedef _Type type;
 
-#if defined(PUREMVC_USES_TR1)
             typedef std::unique_ptr<IIterator<_Type> > Iterator;
-#else
-            typedef std::auto_ptr<IIterator<_Type> > Iterator;
-#endif
 
             /**
              * Set item collection from this to iterator.
