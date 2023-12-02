@@ -51,11 +51,7 @@ namespace PureMVC
          */
         struct PUREMVC_API IView
         {
-#if defined(PUREMVC_USES_TR1)
             typedef std::unique_ptr<IAggregate<std::string> > MediatorNames;
-#else
-            typedef std::auto_ptr<IAggregate<std::string> > MediatorNames;
-#endif
 
             /**
              * Register an <code>IObserver</code> to be notified

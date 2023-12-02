@@ -39,12 +39,12 @@ namespace tut
         std::auto_ptr<IIterator<std::string> > iterator = names->getIterator();
         std::size_t count = 0;
 
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << std::endl <<"The list name of Facade: " << std::endl;
 #endif
         while(iterator->moveNext()) {
             ++count;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout <<count << ". " <<iterator->getCurrent() << std::endl;
 #endif
         }
@@ -61,12 +61,12 @@ namespace tut
         std::auto_ptr<IIterator<std::string> > iterator = names->getIterator();
         std::size_t count = 0;
 
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << std::endl <<"The list name of Controller: " << std::endl;
 #endif
         while(iterator->moveNext()) {
             ++count;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout <<count << ". " <<iterator->getCurrent() << std::endl;
 #endif
         }
@@ -83,12 +83,12 @@ namespace tut
         std::auto_ptr<IIterator<std::string> > iterator = names->getIterator();
         std::size_t count = 0;
 
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << std::endl <<"The list name of Model: " << std::endl;
 #endif
         while(iterator->moveNext()) {
             ++count;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout <<count << ". " <<iterator->getCurrent() << std::endl;
 #endif
         }
@@ -105,12 +105,12 @@ namespace tut
         std::auto_ptr<IIterator<std::string> > iterator = names->getIterator();
         std::size_t count = 0;
 
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << std::endl <<"The list name of View: " << std::endl;
 #endif
         while(iterator->moveNext()) {
             ++count;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout <<count << ". " <<iterator->getCurrent() << std::endl;
 #endif
         }

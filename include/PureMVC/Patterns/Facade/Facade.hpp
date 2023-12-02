@@ -53,11 +53,7 @@ namespace PureMVC
         class PUREMVC_API Facade : public virtual IFacade, public Notifier
         {
         public:
-#if defined(PUREMVC_USES_TR1)
             typedef std::unique_ptr<IAggregate<std::string> > CoreNames;
-#else
-            typedef std::auto_ptr<IAggregate<std::string> > CoreNames;
-#endif
         public:
             static char const* const DEFAULT_KEY;
         private:

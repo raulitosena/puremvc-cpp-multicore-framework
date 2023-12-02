@@ -44,11 +44,7 @@ namespace PureMVC
          */
         struct PUREMVC_API IModel
         {
-#if defined(PUREMVC_USES_TR1)
             typedef std::unique_ptr<IAggregate<std::string> > ProxyNames;
-#else
-            typedef std::auto_ptr<IAggregate<std::string> > ProxyNames;
-#endif
 
             /**
              * Register an <code>IProxy</code> instance with the <code>Model</code>.
