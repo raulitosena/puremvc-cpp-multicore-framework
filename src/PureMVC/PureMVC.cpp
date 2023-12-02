@@ -829,7 +829,7 @@ static void destructPureMVC(void)
 static void constructPureMVC(void)
 {
 #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
-    std:: cout << "PureMVC library is detached by process!" << std::endl;
+	std::cout << "New process attaches PureMVC library!" << std::endl;
 #endif
     std::atexit(destructPureMVC);
     try
