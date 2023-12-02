@@ -6,10 +6,10 @@ add_executable(${TARGET}
 )
 
 add_dependencies(${TARGET} 
-	PureMVClito
+	${LIBRARY_NAME}
 )
 
 target_link_libraries(${TARGET} PUBLIC
-	PureMVClito
+	${LIBRARY_NAME}
 )
 

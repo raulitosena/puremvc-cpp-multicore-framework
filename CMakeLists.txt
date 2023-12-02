@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.10.0)
-project(PureMVClito LANGUAGES CXX)
+project(PureMVC LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -26,7 +26,11 @@ include_directories(
 	${CMAKE_CURRENT_LIST_DIR}/include
 )
 
-set (LIBRARY_NAME PureMVClito)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(LIBRARY_NAME "PureMVCd")
+else()
+    set(LIBRARY_NAME "PureMVC")
+endif()
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/src)
 
