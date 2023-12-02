@@ -111,7 +111,7 @@ namespace PureMVC
             if (!_mutex) _mutex = new FastMutex();
             FastMutex::ScopedLock _(*_mutex);
             if (_instance != NULL) return;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout << "Create instance map of " << _Name << std::endl;
 #endif
             _instance = new StringTypeMap;
@@ -300,7 +300,7 @@ namespace PureMVC
             if (!_mutex) _mutex = new FastMutex();
             FastMutex::ScopedLock _(*_mutex);
             if (_instance == NULL) return;
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
             std::cout << "Clean instance map of " << _Name <<" - Number object: " << _instance->size() << std::endl;
 #endif
             StringTypeMap * instance = _instance;

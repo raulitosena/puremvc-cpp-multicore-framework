@@ -35,13 +35,13 @@
         #endif
         #if !defined(PUREMVC_NO_AUTO_IMPORT)
             #if defined(_DLL) || defined(USE_DLL)
-                #if defined(_DEBUG) || defined(DEBUG)
+                #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
                     #pragma comment(lib, "PureMVCddll.lib")
                 #else
                     #pragma comment(lib, "PureMVCdll.lib")
                 #endif
             #else
-                #if defined(_DEBUG) || defined(DEBUG)
+                #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
                     #pragma comment(lib, "PureMVCd.lib")
                 #else
                     #pragma comment(lib, "PureMVC.lib")

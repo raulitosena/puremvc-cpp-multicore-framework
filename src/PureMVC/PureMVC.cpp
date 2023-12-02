@@ -717,7 +717,7 @@ BOOL WINAPI DllMain(HINSTANCE /* hinstDLL */, DWORD fdwReason, PVOID /* lpReserv
     switch( fdwReason ) 
     {
     case DLL_PROCESS_ATTACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << "New process attaches PureMVC library!" << std::endl;
 #endif
         try
@@ -731,19 +731,19 @@ BOOL WINAPI DllMain(HINSTANCE /* hinstDLL */, DWORD fdwReason, PVOID /* lpReserv
         }
         return TRUE;
     case DLL_THREAD_ATTACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << "New thread attaches PureMVC library!" << std::endl;
 #endif
         break;
 
     case DLL_THREAD_DETACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
        std::cout << "PureMVC library is detached by thread!" << std::endl;
 #endif
         break;
 
     case DLL_PROCESS_DETACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << "PureMVC library is detached by process!" << std::endl;
 #endif
         try
@@ -766,7 +766,7 @@ BOOL WINAPI DllEntryPoint(HINSTANCE /* hinstDLL */, DWORD fdwReason, PVOID /* lp
     switch( fdwReason ) 
     {
     case DLL_PROCESS_ATTACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << "New process attaches PureMVC library!" << std::endl;
 #endif
         try
@@ -780,19 +780,19 @@ BOOL WINAPI DllEntryPoint(HINSTANCE /* hinstDLL */, DWORD fdwReason, PVOID /* lp
         }
         return TRUE;
     case DLL_THREAD_ATTACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std::cout << "New thread attaches PureMVC library!" << std::endl;
 #endif
         break;
 
     case DLL_THREAD_DETACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std:: cout << "PureMVC library is detached by thread!" << std::endl;
 #endif
         break;
 
     case DLL_PROCESS_DETACH:
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
         std:: cout << "PureMVC library is detached by process!" << std::endl;
 #endif
         try
@@ -813,7 +813,7 @@ BOOL WINAPI DllEntryPoint(HINSTANCE /* hinstDLL */, DWORD fdwReason, PVOID /* lp
 static void constructPureMVC(void) __attribute__((constructor));
 static void destructPureMVC(void)
 {
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
    std:: cout << "PureMVC library is detached by process!" << std::endl;
 #endif
     try
@@ -828,7 +828,7 @@ static void destructPureMVC(void)
 
 static void constructPureMVC(void)
 {
-#if defined(_DEBUG) || defined(DEBUG)
+#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
     std:: cout << "PureMVC library is detached by process!" << std::endl;
 #endif
     std::atexit(destructPureMVC);
