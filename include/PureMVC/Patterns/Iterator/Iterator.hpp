@@ -434,17 +434,9 @@ namespace PureMVC
              *
              * @return The auto pointer of iterator.
              */
-#if defined(PUREMVC_USES_TR1)
             virtual std::unique_ptr<IIterator<ValueType> > getIterator(void) const
-#else
-            virtual std::auto_ptr<IIterator<ValueType> > getIterator(void) const
-#endif
             {
-#if defined(PUREMVC_USES_TR1)
                 std::unique_ptr<IIterator<ValueType> > 
-#else
-                std::auto_ptr<IIterator<ValueType> > 
-#endif
                 result(new typename StdContainerAggregate::IteratorImplement());
 
                 setIterator(*result);

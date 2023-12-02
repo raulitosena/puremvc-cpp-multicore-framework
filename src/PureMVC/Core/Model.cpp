@@ -134,11 +134,7 @@ Model::ProxyNames Model::listProxyNames(void) const
                                   ProxyMap::const_iterator,
                                   IteratorConverter,
                                   IteratorRange> result_t;
-#if defined(PUREMVC_USES_TR1)
     return std::unique_ptr<IAggregate<ProxyMap::key_type> >(new result_t(&_proxy_map));
-#else
-    return std::auto_ptr<IAggregate<ProxyMap::key_type> >(new result_t(&_proxy_map));
-#endif
 }
 
 Model::~Model(void)

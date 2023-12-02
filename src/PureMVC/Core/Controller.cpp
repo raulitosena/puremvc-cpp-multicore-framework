@@ -163,11 +163,7 @@ Controller::NotificationNames Controller::listNotificationNames(void) const
                                   CommandMap::const_iterator,
                                   IteratorConverter,
                                   IteratorRange> result_t;
-#if defined(PUREMVC_USES_TR1)
     return std::unique_ptr<IAggregate<CommandMap::key_type> >(new result_t(&_command_map));
-#else
-    return std::auto_ptr<IAggregate<CommandMap::key_type> >(new result_t(&_command_map));
-#endif
 }
 
 Controller::~Controller(void)
