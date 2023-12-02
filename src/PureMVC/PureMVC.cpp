@@ -810,36 +810,36 @@ BOOL WINAPI DllEntryPoint(HINSTANCE /* hinstDLL */, DWORD fdwReason, PVOID /* lp
 }
 
 #elif defined(__GNUC__) || defined(__MINGW32__)
-static void constructPureMVC(void) __attribute__((constructor));
-static void destructPureMVC(void)
-{
-#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
-   std:: cout << "PureMVC library is detached by process!" << std::endl;
-#endif
-    try
-    {
-        cleanCache();
-    }
-    catch (std::exception const& ex)
-    {
-        std::cerr << ex.what();    
-    }
-}
+// static void constructPureMVC(void) __attribute__((constructor));
+// static void destructPureMVC(void)
+// {
+// #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
+//    std:: cout << "PureMVC library is detached by process!" << std::endl;
+// #endif
+//     try
+//     {
+//         cleanCache();
+//     }
+//     catch (std::exception const& ex)
+//     {
+//         std::cerr << ex.what();    
+//     }
+// }
 
-static void constructPureMVC(void)
-{
-#if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
-	std::cout << "New process attaches PureMVC library!" << std::endl;
-#endif
-    std::atexit(destructPureMVC);
-    try
-    {
-        createCache();
-    }
-    catch (std::exception const& ex)
-    {
-        std::cerr << ex.what();
-    }
-}
+// static void constructPureMVC(void)
+// {
+// #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
+// 	std::cout << "New process attaches PureMVC library!" << std::endl;
+// #endif
+//     std::atexit(destructPureMVC);
+//     try
+//     {
+//         createCache();
+//     }
+//     catch (std::exception const& ex)
+//     {
+//         std::cerr << ex.what();
+//     }
+// }
 #endif
 #endif

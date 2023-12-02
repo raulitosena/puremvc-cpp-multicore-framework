@@ -31,7 +31,6 @@ set (LIBRARY_NAME PureMVClito)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/src)
 
 add_library(${LIBRARY_NAME} STATIC
-
 	include/PureMVC/Interfaces/INotifier.hpp
 	include/PureMVC/Interfaces/IProxy.hpp
 	include/PureMVC/Interfaces/IIterator.hpp
@@ -59,8 +58,6 @@ add_library(${LIBRARY_NAME} STATIC
 	include/PureMVC/Core/Model.hpp
 	include/PureMVC/Core/Controller.hpp
 
-
-
 	src/PureMVC/PureMVC.cpp
 	src/PureMVC/Common.hpp
 	src/PureMVC/Patterns/Mediator/Mediator.cpp
@@ -73,13 +70,15 @@ add_library(${LIBRARY_NAME} STATIC
 	src/PureMVC/Core/Model.cpp
 	src/PureMVC/Core/View.cpp
 	src/PureMVC/Core/Controller.cpp
-
-
 )
 
-target_compile_definitions(${LIBRARY_NAME} PUBLIC 
-	#PUREMVC_USES_TR1
-	# FRAMEWORK_MESSAGING_LIBRARY
-	# PROTOCOL_CEDROCRYSTAL_LIBRARY
+link_directories(
+	${TM_BUILD}
 )
+
+include_directories(
+	${BASE_DIR}/include
+)
+
+add_subdirectory(puremvc_app)
 
