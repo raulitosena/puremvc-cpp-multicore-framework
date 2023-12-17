@@ -82,9 +82,6 @@ namespace PureMVC
              * Define iterator converter for getting mediator name only.
              */
             struct IteratorConverter
-#if !defined(__DMC__) // The C++ compiler of Digital Mars cannot resolve this case
-            : public std::unary_function<MediatorMap::const_iterator, MediatorMap::key_type>
-#endif
             {
             /*
              * Converting operator.

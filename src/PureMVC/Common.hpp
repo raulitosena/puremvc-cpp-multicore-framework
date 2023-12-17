@@ -84,9 +84,6 @@ namespace PureMVC
         mutable FastMutex* _mutex;
     private:
         struct KeyConverter 
-#if !defined(__DMC__) // The C++ compiler of Digital Mars cannot resolve this case
-        : public std::unary_function<typename StringTypeMap::const_iterator, typename StringTypeMap::key_type>
-#endif
         {
             inline typename StringTypeMap::key_type const& operator()(typename StringTypeMap::const_iterator const& iterator) const {
                 return iterator->first;

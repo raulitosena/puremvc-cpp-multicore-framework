@@ -90,9 +90,6 @@ namespace PureMVC
              * Define iterator converter for getting notification name only.
              */
             struct IteratorConverter
-#if !defined(__DMC__) // The C++ compiler of Digital Mars cannot resolve this case
-            : public std::unary_function<CommandMap::const_iterator, CommandMap::key_type>
-#endif
             {
                 /**
                  * Converting operator.

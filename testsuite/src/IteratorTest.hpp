@@ -21,7 +21,8 @@ namespace data
         typedef std::list<std::string> list_string_t;
         std::list<std::string> listItem;
 
-        struct Converter : public std::unary_function<list_string_t::const_iterator, std::string> {
+        struct Converter
+        {
             std::string const& operator()(list_string_t::const_iterator const& iterator) const;
         };
         class Iterator : public PureMVC::Patterns::Iterator<std::string, list_string_t::const_iterator, Converter>

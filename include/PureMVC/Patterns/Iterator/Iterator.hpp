@@ -33,7 +33,7 @@ namespace PureMVC
          * Default converter from stl-iterator to value.
          */
         template<typename _Type, typename _IteratorType>
-        struct DefaultIteratorConverter : public std::unary_function<_IteratorType, _Type>
+        struct DefaultIteratorConverter
         {
             /**
              * Converting operator.

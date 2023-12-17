@@ -142,11 +142,7 @@ void View::registerMediator(IMediator* mediator)
     }while (false);
 
     IMediator::NotificationNames result(mediator->listNotificationInterests());
-#if defined(__DMC__) // The C++ complier of Digital Mars is too stupid~~~
-    std::auto_ptr<IIterator<std::string> >  
-#else
     IMediator::NotificationNames::element_type::Iterator
-#endif
     iter(result->getIterator());
     // Register Mediator as an observer for each notification of interests
     while(iter->moveNext())
@@ -198,11 +194,7 @@ IMediator* View::removeMediator(std::string const& mediator_name)
     {
         // for every notification this mediator is interested in...
         IMediator::NotificationNames result(mediator->listNotificationInterests());
-#if defined(__DMC__) // The C++ complier of Digital Mars is too stupid~~~
-        std::auto_ptr<IIterator<std::string> >  
-#else
         IMediator::NotificationNames::element_type::Iterator 
-#endif
         iter(result->getIterator());
         while(iter->moveNext())
         {
